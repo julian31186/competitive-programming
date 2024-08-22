@@ -1,5 +1,3 @@
-from collections import deque
-
 class Solution:
     def minOperations(self, n: int) -> int:
         q = deque([(0,n)])
