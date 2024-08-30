@@ -4,6 +4,7 @@ class DSU:
 
     def union(self,a,b):
         i,j = self.find(a),self.find(b)
+        if i == j: return
         if self.p[i] > self.p[j]: i,j = j,i
         self.p[i] += self.p[j]
         self.p[j] = i 
