@@ -1,38 +1,20 @@
 class DSU:
     def __init__(self,n):
-        self.arr = [-1] * n
+        self.p = [-1] * n
 
     def union(self,a,b):
-        par_a = a
-        while self.arr[par_a] >= 0:
-            par_a = self.arr[par_a]
-        par_b = b
-        while self.arr[par_b] >= 0:
-            par_b = self.arr[par_b]
-        
-        if par_a == par_b: return
-
-        if abs(self.arr[par_a]) > abs(self.arr[par_b]):
-            self.arr[par_a] += self.arr[par_b]
-            self.arr[par_b] = par_a
-        else:
-            self.arr[par_b] += self.arr[par_a]
-            self.arr[par_a] = par_b
+        i,j = self.find(a),self.find(b)
+        if self.p[i] > self.p[j]: i,j = j,i
+        self.p[i] += self.p[j]
+        self.p[j] = i 
     
-    def find(self,x):
-        parent = x
-        while self.arr[parent] >= 0:
-            parent = self.arr[parent]
-        
-        compress = x
-        while self.arr[compress] >= 0:
-            temp = self.arr[compress]
-            self.arr[compress] = parent
-            compress = temp
-        return parent 
+    def find(self,i):
+        if self.p[i] < 0: return i
+        self.p[i] = self.find(self.p[i])
+        return self.p[i]
     
     def count(self):
         cc = 0
-        for x in self.arr:
+        for x in self.p:
             if x < 0: cc += 1
         return cc
