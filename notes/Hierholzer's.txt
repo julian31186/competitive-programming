@@ -1,0 +1,48 @@
+Hierholzer's Algorithm
+
+Eulerian Path - a trail in a graph that visits every edge exactly once (start and end node of the path can be different)
+    
+    -In order for an UNDIRECTED graph to have a Eulerian Path, exactly 2 nodes MUST have an ODD degree, OR all nodes MUST have an even degree
+
+    -In order for a DIRECTED graph to have an Eulerian Path, at most ONE vertex has (outdeg - indeg) = 1
+    and at most one vertex has (indeg - outdeg) = 1, and all other vertices have equal in and out degrees (meaning for each node i, i_in == i_out. we are NOT saying that every other node in the graph must have the same in and out degrees ex. j_in == i_in) 
+
+        -When we say all OTHER vertices, we mean every vertex that IS NOT the start or the end node
+
+        -We MUST start the path on the node that has an extra outgoing edge (outdeg - indeg == 1)
+
+        -The count of (indeg - outdeg == 1) and (outdeg - indeg == 1) are either BOTH 0 or BOTH 1
+
+
+Eulerian Circuit - a Eulerian Path that begins and ends with the same node
+    -In order for an UNDIRECTED graph to have an existing Eulerian CIRCUIT, all vertices must have an EVEN degree (in & out degrees)
+        An even degree ensures that by starting at any node, there will be an edge to leave the node, as well as another edge to return to the node
+        to finish the circuit
+
+    -If we know the graph we pass into Hierholzer(G) contains an Eulerian circuit, we will receive this circuit as the output (even though the algo is meant to find Eulerian paths)
+
+
+* IF THE GRAPH IS DISCONNECTED, THERE CANNOT EXIST AN EULERIAN PATH/CIRCUIT
+
+
+Using Hierholzer's algo, we basically attempt to compelte a circuit. If this circuit contains all edges within the graph, we have found
+the Eulerian cycle. If not, we "patch" the path by inserting sub-circuits into the path until we have covered every edge. This is done by the backtracking
+which is explained nicely in WilliamFiset video.
+
+By performing a random DFS on the proper start node it is GUARANTEED that we will end on the proper end node, however we might not hit all edges. This is when we do the backtracking as mentioned above.
+
+Ex.
+- https://youtu.be/qZrfK2iE4UA?si=sm4OePX5RX1_4tXU
+
+Implementation and Explanation
+- https://youtu.be/8MpoO2zA2l4?si=NsK6ER51icusn7oD
+
+
+Time Complexity: O(E) (where E represents the number of edges)
+    -calculating in and out degree for all nodes == O(E)
+    -generating path O(E) since we vist each edge at most once
+
+Problems to practice:
+- https://leetcode.com/problems/reconstruct-itinerary/description/
+
+- https://leetcode.com/problems/valid-arrangement-of-pairs/description/
