@@ -10,8 +10,14 @@ def good(arr,inc):
 res = 0
 for line in f:
     a = [int(x) for x in line.split(" ")]
-    inc = any(good(a[:i] + a[i + 1:],True) for i in range(len(a)))
-    dec = any(good(a[:i] + a[i + 1:],False) for i in range(len(a)))
-    res += (inc or dec)
 
+    for i in range(len(a)):
+        b = []
+        for j in range(len(a)):
+            if i == j: continue
+            b.append(a[j])
+        if (good(b,True) or good(b,False)):
+            res += 1
+            break
+        
 print(res)
