@@ -6,6 +6,7 @@ TC: O(ElogE)
 SC: E
 
 (E can be at most V^2 in a fully connected graph)
+(so ElogE becomes ElogV^2 == ElogV because of log rules)
 
 '''
 
