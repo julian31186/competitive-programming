@@ -1,4 +1,7 @@
 from collections import defaultdict
+import time
+
+start_time = time.time()
 
 f = open("input.txt")
 
@@ -60,3 +63,10 @@ for i in range(len(s)):
     res += (i * int(s[i]))
 
 print(res)
+
+end_time = time.time()
+
+minutes = (end_time - start_time) // 60
+seconds = (end_time - start_time) % 60
+
+print(minutes, "minutes", seconds, "seconds")
