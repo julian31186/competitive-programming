@@ -1,39 +1,12 @@
-# '''
-# Thinking some form of BFS?
 
-# whats tc
+n = int(input())
 
-# edge between 2 nodes means they have hamming dist of one (aka xor has 1 bit)
-# '''
+def go(i,prev):
+    if i == n: return prev
+    prev += prev[::-1]
+    for idx in range(len(prev)):
+        prev[idx] += "0" if idx < len(prev) // 2 else "1"
+    return go(i + 1,prev)
 
-
-# n = int(input())
-# a = []
-
-# def dfs(i,s):
-#     if i == n:
-#         print(s)
-#         a.append("".join(s))
-#         return
-
-#     s.append('0')
-#     dfs(i + 1,s)
-#     s.pop()
-
-#     s.append('1')
-#     dfs(i + 1,s)
-#     s.pop()
-
-# dfs(0,[])
-# for i in range(len(a)):
-#     a[i] = int(a[i],2)
-
-# print([bin(x)[2:] for x in a])
-
-# '''
-# 00
-# 01
-# 11
-# 10
-
-# '''
+for x in go(1,["0","1"]):
+    print(x)
