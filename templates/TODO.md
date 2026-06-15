@@ -1,1 +1,0 @@
--String hashing (Rabin Karp, KMP)

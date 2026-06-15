@@ -8,11 +8,14 @@ graph -> adjacency list with (u : (c,v))
 
 '''
 
+import math
+import heapq
+
 def djik(graph,start,n):
     dists = {}
     prev = [-1] * n
     for i in range(1,n + 1):
-        dists[i] = inf
+        dists[i] = math.inf
     dists[start] = 0
     h = [(0,start)]
     while h:

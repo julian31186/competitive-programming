@@ -1,3 +1,5 @@
+# Input Template
+
 def ra():
     return [int(x) for x in input().split(" ")]
 
@@ -10,5 +12,4 @@ def solve():
     
 
 for _ in range(tc):
-    
     print(solve())

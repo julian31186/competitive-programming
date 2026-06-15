@@ -1,6 +1,4 @@
-
 '''
-
 Returns the 2D prefix sum on a matrix (modifies the reference)
 
 1 2 3      1  3  6
