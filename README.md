@@ -1,8 +1,5 @@
 # competitive-programming
 
 https://leetcode.com/u/julian31186/
-
-# ToDo
-- floyd warshall
-- bellman ford
-- time complexity for all templates
+https://codeforces.com/profile/julian31186
+https://www.codechef.com/users/julian31186
